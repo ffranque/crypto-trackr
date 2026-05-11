@@ -331,7 +331,7 @@ With `max-concurrent-fetches: 5`, at most 5 gateway calls are in-flight at any m
 
 - **Virtual threads** — enabled globally via `spring.threads.virtual.enabled: true`. Price fetching uses a `VirtualThreadPerTaskExecutor` so each asset fetch runs concurrently without blocking OS threads.
 
-- **Schema management** — Hibernate `ddl-auto: update` is used for development convenience. New columns are added automatically on startup; existing data is preserved. A migration tool (e.g. Flyway) should replace this before production use.
+- **Schema management** — Hibernate `ddl-auto: update` is used for development convenience. New columns are added automatically on startup; existing data is preserved.
 
 - **`user_account` table name** — the `User` entity maps to the table `user_account` to avoid conflicting with the PostgreSQL reserved keyword `user`.
 
@@ -339,8 +339,6 @@ With `max-concurrent-fetches: 5`, at most 5 gateway calls are in-flight at any m
 
 - **CoinCap v3 API** — the base URL and API key are externalised to `application.yaml`. The `Authorization: Bearer <key>` and `Accept: application/json` headers are applied globally via `WebClientConfig`.
 
-- **Response DTOs** — controllers return dedicated record types (`UserResponse`, `WalletResponse`, `WalletAssetResponse`, `PriceRecordResponse`) rather than JPA entities directly. This decouples the HTTP contract from the persistence model and eliminates the need for Jackson mix-ins to handle bidirectional JPA relationship cycles.
-
-- **In-process price cache** — `LatestPriceCache` is a `ConcurrentHashMap` updated by the price fetcher and read by wallet valuation. No external cache dependency. A distributed cache (e.g. Redis) would be needed for multi-instance deployments.
+- **In-process price cache** — `LatestPriceCache` is a `ConcurrentHashMap` updated by the price fetcher and read by wallet valuation. No external cache dependency.
 
 - **Retry and rate limiting** — `CoinCapGateway` retries on 5xx and network errors using exponential backoff (up to `max-retries` attempts). 429 is never retried. `PriceFetcherService` enforces `max-concurrent-fetches` parallel outbound calls via a `Semaphore`. Both limits are externalised to `application.yaml`.
