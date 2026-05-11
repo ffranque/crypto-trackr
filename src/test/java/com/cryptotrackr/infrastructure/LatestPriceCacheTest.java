@@ -1,4 +1,4 @@
-package com.cryptotrackr.service;
+package com.cryptotrackr.infrastructure;
 
 import org.junit.jupiter.api.Test;
 

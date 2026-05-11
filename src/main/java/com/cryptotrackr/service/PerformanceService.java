@@ -1,4 +1,3 @@
-/** Calculates per-asset price change percentages over a configurable time window for a wallet. */
 package com.cryptotrackr.service;
 
 import com.cryptotrackr.domain.Asset;
@@ -9,6 +8,7 @@ import com.cryptotrackr.repository.WalletAssetRepository;
 import com.cryptotrackr.repository.WalletRepository;
 import com.cryptotrackr.dto.AssetPerformanceDto;
 import com.cryptotrackr.dto.WalletPerformanceDto;
+import com.cryptotrackr.infrastructure.LotAggregator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

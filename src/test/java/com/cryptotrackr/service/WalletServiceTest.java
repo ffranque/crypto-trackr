@@ -11,6 +11,8 @@ import com.cryptotrackr.repository.UserRepository;
 import com.cryptotrackr.repository.WalletAssetRepository;
 import com.cryptotrackr.repository.WalletRepository;
 import com.cryptotrackr.dto.WalletValueDto;
+import com.cryptotrackr.infrastructure.LatestPriceCache;
+import com.cryptotrackr.infrastructure.LotAggregator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

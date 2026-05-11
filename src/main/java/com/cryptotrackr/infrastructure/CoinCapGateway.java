@@ -1,4 +1,4 @@
-package com.cryptotrackr.service;
+package com.cryptotrackr.infrastructure;
 
 import com.cryptotrackr.dto.response.CoinCapAssetResponse;
 import lombok.extern.slf4j.Slf4j;

@@ -8,6 +8,8 @@ import com.cryptotrackr.repository.WalletAssetRepository;
 import com.cryptotrackr.repository.WalletRepository;
 import com.cryptotrackr.dto.AssetValueDto;
 import com.cryptotrackr.dto.WalletValueDto;
+import com.cryptotrackr.infrastructure.LatestPriceCache;
+import com.cryptotrackr.infrastructure.LotAggregator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.cryptotrackr.service;
+package com.cryptotrackr.infrastructure;
 
 import com.cryptotrackr.domain.Asset;
 import com.cryptotrackr.repository.AssetRepository;
